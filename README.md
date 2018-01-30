@@ -25,6 +25,9 @@ This application requires:
 
 - Ruby 2.3.1
 - Rails 5.0.6
+- Facebook Graph API
+- Google Civic API
+- Twilio API
 
 Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
 
@@ -33,6 +36,10 @@ Getting Started
 
 Documentation and Support
 -------------------------
+
+The purpose of this project is to provide a way to know more about those who represent you at a federal, state, and municipal level. 
+
+Additionally, it allows the user the ability to call them directly from the application.
 
 Issues
 -------------
