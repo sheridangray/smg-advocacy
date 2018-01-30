@@ -21,7 +21,7 @@ class TwilioController < ApplicationController
       @call = @client.calls.create(
         to:   twilio_contact.user_phone,
         from: Rails.application.secrets.twilio_phone_number,
-        url: "http://5887b7e5.ngrok.io/connect/#{twilio_contact.encoded_target_phone}"
+        url: "https://salty-citadel-43320.herokuapp.com/connect/#{twilio_contact.encoded_target_phone}"
         # url: "http://localhost:3000/connect/1"
       )
 
