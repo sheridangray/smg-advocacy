@@ -12,6 +12,5 @@
 //
 //= require popper
 //= require jquery
-//= require gmaps-auto-complete
 //= require bootstrap-sprockets
 //= require_tree .
