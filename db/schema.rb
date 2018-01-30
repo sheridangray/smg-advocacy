@@ -10,17 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171213030431) do
+ActiveRecord::Schema.define(version: 20180123081955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "google_civic_apis", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "provider"
     t.string   "uid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "email"
+    t.string   "image"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "address"
+    t.string   "token"
+    t.datetime "token_expires_at"
+    t.string   "phone"
+    t.integer  "google_civic_api_id"
+    t.index ["google_civic_api_id"], name: "index_users_on_google_civic_api_id", using: :btree
   end
 
+  add_foreign_key "users", "google_civic_apis"
 end

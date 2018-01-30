@@ -1,2 +1,53 @@
-<h3>User</h3>
-<p>Name: <%= @user.name if @user.name %></p>
+<% provide(:title, 'User Details') %>
+
+<h1>User Details</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= image_tag(@user.image) %>
+    <p>Name: <%= @user.name if @user.name %></p>
+    <p>Email: <%= @user.email if @user.email %></p>
+    <p>Address: <%= @user.address if @user.address %></p>
+    <p>Phone: <%= @user.phone if @user.phone %></p>
+
+    <p>Facebook OAuth Token: <%= @user.token if @user.token %></p>
+    <p>Image URL: <%= @user.image if @user.image %></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <% @civicInfo["divisions"].each do |division| %>
+      <% division[1]["officeIndices"].each do |office_index| %>
+        <% office = @civicInfo["offices"][office_index] %>
+        
+        <% office["officialIndices"].each do |official_index| %>
+          <% official = @civicInfo["officials"][official_index] %>
+        
+          
+          <h3><%= official["name"] %></h3>
+          <p><%= office["name"] %>, <%= official["party"] %></p>
+          <!-- <p>
+            <%= official["address"][0]["line1"] %><br>
+            <%= official["address"][0]["line2"] %><br>
+            <%= official["address"][0]["city"] %><br>
+            <%= official["address"][0]["state"] %><br>
+            <%= official["address"][0]["zip"] %>
+          </p>
+          <p><%= official["phones"][0] %></p> -->
+
+          <%= form_tag("/call", method: "post") do %>
+            <%= label_tag(:userPhone, "User Phone:") %>
+            <%= text_field_tag(:userPhone, @user.phone) %>
+            <br/>
+            <%= label_tag(:targetPhone, "Legislator Phone:") %>
+            <%= text_field_tag(:targetPhone, official["phones"][0] ) %>
+            <br/>
+            <%= submit_tag("Call") %>
+          <% end %>
+          
+        <% end %>  
+      <% end %>  
+    <% end %>
+  </div>
+</div>
+

@@ -5,7 +5,12 @@
     <title><%= content_for?(:title) ? yield(:title) : "Smg Advocacy" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Smg Advocacy" %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+
+    <%= javascript_include_tag "application" %>
+    
+    <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCy_CoKZ76VKms6eFQ9rz7BsQY57NVSIqc"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/popper.min.js"></script>
+
     <%= csrf_meta_tags %>
   </head>
   <body>

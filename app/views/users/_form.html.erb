@@ -1,0 +1,16 @@
+<%= form_for(@user) do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control', :disabled => true %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email, class: 'form-control', :disabled => true %>
+
+  <%= f.label :address %>
+  <%= f.text_field :address, class: 'form-control', placeholder: 'Start typing an address...' %>  
+
+  <%= f.label :phone %>
+  <%= f.text_field :phone, class: 'form-control' %>
+
+  <%= f.submit "Save changes", class: "btn btn-primary" %>
+<% end %>

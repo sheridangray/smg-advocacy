@@ -26,7 +26,12 @@ gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'high_voltage'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'koala'
+gem 'gmaps-autocomplete-rails'
+gem 'popper_js', '~> 1.11', '>= 1.11.1'
 gem 'pg'
+gem 'httparty'
+gem 'twilio-ruby', '~> 5.6.0'
 group :development do
   gem 'better_errors'
   gem 'hub', :require=>nil
